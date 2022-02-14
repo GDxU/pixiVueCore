@@ -1,6 +1,6 @@
 {
   "name": "bomber.client",
-  "version": "0.2",
+  "version": "0.3",
   "type": "module",
   "scripts": {
     "dev": "vue-cli-service serve --mode development",
