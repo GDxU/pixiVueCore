@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+NVM_DIR=~/.nvm
+. ~/.nvm/nvm.sh
+nvm use 12
+
+sh texture.sh
+cd ../ && cnpm run vuetest-demo
+

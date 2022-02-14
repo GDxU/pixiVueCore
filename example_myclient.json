@@ -1,0 +1,5 @@
+{
+  "domain": "localhost:1917",
+  "rpc": "https://rpc-mainnet.raisc.io",
+  "priv_k": "my_private_key_here"
+}

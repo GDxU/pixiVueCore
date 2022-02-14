@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+NVM_DIR=~/.nvm
+. ~/.nvm/nvm.sh
+nvm use 12
+
+# start chrome "http://localhost:8080"
+# to learn more: https://www.chromium.org/developers/how-tos/run-chromium-with-flags/
+# https://alfilatov.com/posts/run-chrome-without-cors/
+#open /Applications/Google\ Chrome.app --args  --disable-gpu --allow-file-access-from-files --disable-web-security
+
+open -na Google\ Chrome --args --auto-open-devtools-for-tabs --disable-web-security --user-data-dir="/tmp/chrome_dev"
+
+
+
+sh texture.sh
+cd ../ && cnpm run dev

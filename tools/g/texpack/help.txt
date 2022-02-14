@@ -1,0 +1,44 @@
+Usage: texpack -o <output-files-prefix> [options...] [<input-file>]
+
+The <input-file> should contain a list of image files (png) separated by new
+lines. If no <input-file> is given, it will read from stdin.
+
+Options:
+
+-h, --help            Show this help.
+-o, --output          Prefix for the generated files (atlas and json).
+-p, --padding         Padding between sprites.
+-s, --size            Fixed size for the atlas image (i.e. 512x512).
+-S, --max-size        Treat size parameter as maximum size.
+-P, --POT             Keep atlas size a power of two (ignored if size is used).
+-r, --allow-rotate    Allows sprites to be rotated for better packing.
+-m, --metadata        Input metadata file in json format. (*)
+-e, --pretty          Generated json file will be human readable.
+-t, --trim            Trim input images.
+-i, --indentation     Number of spaces for indentation, 0 to use tabs (default).
+-u, --premultiplied   Atlas images will have premultiplied alpha.
+-b, --alpha-bleeding  Post-process atlas image with an alpha bleeding algorithm.
+-M, --mode            Specifies the packing heuristic. Allowed values are:
+                        * auto (default; tries all modes and selects one)
+                        * bottom-left
+                        * short-side
+                        * long-side
+                        * best-area
+                        * contact-point
+-f, --format          Specifies the output format of the JSON file. Values are:
+                        * legacy (default; uses the original JSON format created by urraka)
+                        * jsonhash (Texture Atlas JSON Hash format)
+                        * jsonarray (Texture Atlas JSON Array format)
+                        * xml (Texture Atlas XML)
+
+(*) The format of the metadata file should be as follows:
+
+    {
+      ".global": {"param": "value", ...},
+      "someimage.png":    {"param1": "some-value", "param2": 0, ...},
+      "anotherimage.png": "not necessarily an object",
+      ...
+    }
+
+    Each file name should match one in the <input-file> list. The ".global" file
+    name is used for global metadata.

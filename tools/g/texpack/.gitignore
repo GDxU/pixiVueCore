@@ -1,0 +1,9 @@
+*.sublime-project
+*.sublime-workspace
+bin/
+test/input/
+test/output/
+test/input2/
+test/output2/
+ext/
+solution/

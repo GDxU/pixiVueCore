@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+
+tp_py() {
+    local o=$3
+    local baseFrame=$2
+    local dName=$1
+    local _c=$(
+        cat <<EOF
+# !/usr/bin/env python
+# coding: utf-8
+import subprocess, glob, os
+
+globString = "$baseFrame" + "*.png"
+frameList = glob.glob(globString)
+imgList = []
+for frame in frameList:
+    imgList.append(frame)
+
+TPargs = ["TexturePacker", "--format", "pixijs4", "--texture-format", "png", "--sheet", "$o$dName.json"] + imgList
+subprocess.call(TPargs)
+
+
+EOF
+    )
+
+    python3 -c "$_c"
+}
